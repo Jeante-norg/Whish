@@ -1,7 +1,12 @@
-import { useState } from "react";
+import React, { useState, ReactNode } from "react";
 import { SparklesIcon } from "@heroicons/react/24/solid";
 
-function Dropdown({ label, children }) {
+interface DropdownProps {
+  label: string;
+  children: ReactNode;
+}
+
+const Dropdown: React.FC<DropdownProps> = ({ label, children }) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -15,6 +20,7 @@ function Dropdown({ label, children }) {
         aria-haspopup="true"
         aria-expanded={open}
         tabIndex={0}
+        type="button"
       >
         {label}
         <svg
@@ -44,9 +50,9 @@ function Dropdown({ label, children }) {
       </div>
     </li>
   );
-}
+};
 
-export default function AnimatedNavbar() {
+const AnimatedNavbar: React.FC = () => {
   return (
     <header className="bg-white w-full border-b border-gray-100 shadow-sm">
       <div className="mx-auto flex items-center justify-between px-10 py-5">
@@ -127,4 +133,6 @@ export default function AnimatedNavbar() {
       </div>
     </header>
   );
-}
+};
+
+export default AnimatedNavbar;
