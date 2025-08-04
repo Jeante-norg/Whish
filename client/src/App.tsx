@@ -1,9 +1,22 @@
-// Example: src/App.jsx
-import { SparklesIcon } from "@heroicons/react/24/solid";
-// import Logo from "./components/Logo";
+import React from "react";
 import AnimatedNavbar from "./components/AnimatedNavbar";
+import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 
-export default function App() {
+const words = [
+  { text: "A" },
+  { text: "minimalist," },
+  { text: "elegant" },
+  { text: "collaborative" },
+  { text: "wishlist" },
+  { text: "app" },
+  { text: "for" },
+  { text: "all" },
+  { text: "your" },
+  { text: "special" },
+  { text: "moments.", className: "text-purple-500" },
+];
+
+const App: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col bg-white text-gray-900 font-sans">
       {/* Navigation/Header */}
@@ -14,10 +27,10 @@ export default function App() {
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-4 tracking-tight">
           Whish
         </h1>
-        <p className="text-md sm:text-xl mb-8 max-w-2xl leading-relaxed">
-          A minimalist, elegant collaborative wishlist app for all your special
-          moments.
-        </p>
+        {/* <p className="text-md sm:text-xl mb-8 max-w-2xl leading-relaxed"> */}
+        <div></div>
+        <TypewriterEffectSmooth words={words} />
+        {/* </p> */}
         <button
           className="bg-gray-900 text-white px-9 py-3 rounded-full font-semibold shadow-sm hover:bg-gray-800 transition mb-4 fade-in"
           style={{ animationDelay: "0.4s" }}
@@ -33,4 +46,6 @@ export default function App() {
       </footer>
     </div>
   );
-}
+};
+
+export default App;
